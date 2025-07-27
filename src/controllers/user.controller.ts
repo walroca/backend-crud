@@ -12,11 +12,11 @@ export const getAllUsers = async (req: Request, res: Response) => {
 
 //Agregar un usuario a la BD
 export const createUser = async (req: Request, res: Response) => {
-  const { nombre, email } = req.body
+  const { nombre, apellido, ciudad, direccion, usuario, email } = req.body
 
   try {
     const nuevoUsuario = await prisma.user.create({
-      data: { nombre, email }
+      data: { nombre, apellido, ciudad, direccion, usuario, email }
     })
     res.status(201).json(nuevoUsuario)
   } catch (error) {
